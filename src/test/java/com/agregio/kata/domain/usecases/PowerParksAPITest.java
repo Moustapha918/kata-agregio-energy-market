@@ -1,5 +1,6 @@
 package com.agregio.kata.domain.usecases;
 
+import com.agregio.kata.domain.market.EnumMarketType;
 import com.agregio.kata.domain.powerparks.InvalidTimeBlockEnergyException;
 import com.agregio.kata.domain.powerparks.PowerPark;
 import com.agregio.kata.domain.powerparks.PowerParks;
@@ -43,6 +44,43 @@ public class PowerParksAPITest {
 
         var createdOffer = sut.create(aValidPark()).orElseThrow();
         assertEquals(expectedPark, createdOffer);
+    }
+
+    @Test
+    public void should_load_parks_providing_on_primary_reserve_market() {
+        var parks = sut.loadParksProvidingOn(EnumMarketType.PRIMARY_RESERVE);
+        assertEquals(1, parks.size());
+        assertEquals(parks.get(0), aMorningProvidingPark());
+    }
+
+    @Test
+    public void should_load_parks_providing_on_secondary_reserve_market() {
+
+        var parks = sut.loadParksProvidingOn(EnumMarketType.SECONDARY_RESERVE);
+        assertEquals(1, parks.size());
+        assertEquals(parks.get(0), aRushHourProvidingPark());
+    }
+
+    private PowerPark aMorningProvidingPark() {
+        return new PowerPark("park1", "12 rue jean", aMorningTimeBlockEnergies());
+    }
+
+    private List<TimeBlockEnergy> aMorningTimeBlockEnergies() {
+        return List.of(
+                new TimeBlockEnergy(0, 3, 234.3D),
+                new TimeBlockEnergy(3, 6, 450D)
+        );
+    }
+
+    private PowerPark aRushHourProvidingPark() {
+        return new PowerPark("park2", "12 rue paul", aRushHourTimeBlockEnergies());
+    }
+
+    private List<TimeBlockEnergy> aRushHourTimeBlockEnergies() {
+        return List.of(
+                new TimeBlockEnergy(7, 10, 30.4D),
+                new TimeBlockEnergy(17, 20, 450.34)
+        );
     }
 
     private PowerPark aValidPark() {
