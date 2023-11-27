@@ -9,7 +9,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static com.agregio.kata.infrastructure.TestUtils.toJson;
-import static com.agregio.kata.infrastructure.offers.WebConstants.API_ROOT_URL;
+import static com.agregio.kata.infrastructure.WebConstants.API_ROOT_URL;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -32,7 +32,7 @@ public class OffersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(offerRequest))
                 .andDo(print())
-                .andExpect(content().json(createdOffer))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(content().json(createdOffer));
     }
 }

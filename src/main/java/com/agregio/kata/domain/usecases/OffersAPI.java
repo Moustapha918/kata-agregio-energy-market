@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface OffersAPI {
 
-    Optional<Offer> createOffer(Offer offer) throws Exception;
+    Optional<Offer> createOffer(Offer offer) throws PwoFunctionalException;
 }
