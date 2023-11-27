@@ -20,6 +20,11 @@ public class PowerParksAdapter implements PowerParksSPI {
         return Optional.of(park);
     }
 
+    @Override
+    public List<PowerPark> findAllParks() {
+        return database;
+    }
+
     private List<PowerPark> initDB() {
         return new ArrayList<>(
                 List.of(

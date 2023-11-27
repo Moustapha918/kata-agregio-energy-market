@@ -1,6 +1,7 @@
 package com.agregio.kata.domain.offers;
 
 import com.agregio.kata.domain.market.EnumMarketType;
+import com.agregio.kata.domain.powerparks.TimeBlockEnergy;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
@@ -94,5 +95,12 @@ public class Offer {
 
     public boolean hasInvalidTimeBlock() {
         return this.getTimeBlocks().stream().anyMatch(timeBlock -> !timeBlock.isValid());
+    }
+
+    public boolean hasTimeBlockEnergy(TimeBlockEnergy timeBlockEnergy) {
+        return this.timeBlocks.stream()
+                .anyMatch(timeBlock ->
+                        timeBlock.getStartHour() == timeBlockEnergy.getStartHour()
+                                && timeBlock.getEndHour() == timeBlockEnergy.getEndHour());
     }
 }

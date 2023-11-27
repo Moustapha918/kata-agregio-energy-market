@@ -16,7 +16,7 @@ public class DomainInjections {
         return new Offers(offersSPI);
     }
 
-    @Bean public PowerParksAPI createPowerParksAPI(PowerParksSPI powerParksSPI){
-        return new PowerParks(powerParksSPI);
+    @Bean public PowerParksAPI createPowerParksAPI(PowerParksSPI powerParksSPI, OffersAPI offersAPI){
+        return new PowerParks(powerParksSPI, offersAPI);
     }
 }

@@ -1,5 +1,7 @@
 package com.agregio.kata.domain.powerparks;
 
+import com.agregio.kata.domain.offers.Offer;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -71,5 +73,16 @@ public class PowerPark {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, address, timeBlockEnergies);
+    }
+
+    public boolean isProvidingOnOffers(List<Offer> offers) {
+        return offers.stream().anyMatch(
+                this::isProvidingOnOffer
+        );
+    }
+
+    private boolean isProvidingOnOffer(Offer offer) {
+        return this.getTimeBlockEnergies().stream()
+                .anyMatch(offer::hasTimeBlockEnergy);
     }
 }

@@ -10,5 +10,5 @@ public interface PowerParksAPI {
 
     Optional<PowerPark> create(PowerPark park);
 
-    List<PowerPark> loadParksProvidingOn(EnumMarketType primaryReserve);
+    List<PowerPark> loadParksProvidingOn(EnumMarketType market);
 }
