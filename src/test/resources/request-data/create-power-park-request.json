@@ -1,0 +1,11 @@
+{
+  "name": "park1",
+  "address": "15 bd st cloud",
+  "timeBlockEnergies": [
+    {
+      "startHour": 12,
+      "endHour": 13,
+      "providedPower": 200.43
+    }
+  ]
+}
