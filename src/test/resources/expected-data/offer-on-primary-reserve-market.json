@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "with 2 block",
+    "Description": "",
+    "marketType": "PRIMARY_RESERVE",
+    "timeBlocks": [
+      {
+        "startHour": 0,
+        "endHour": 3,
+        "floorPrice": 30.4,
+        "powerQuantity": 50.0
+      },
+      {
+        "startHour": 0,
+        "endHour": 4,
+        "floorPrice": 40.0,
+        "powerQuantity": 64.0
+      }
+    ]
+  }
+]

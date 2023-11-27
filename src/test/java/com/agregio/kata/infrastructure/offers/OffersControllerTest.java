@@ -10,6 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static com.agregio.kata.infrastructure.TestUtils.toJson;
 import static com.agregio.kata.infrastructure.WebConstants.API_ROOT_URL;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -34,5 +35,19 @@ public class OffersControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().json(createdOffer));
+    }
+
+    @Test
+    @WithMockUser(username = "user")
+    public void should_find_offers_by_market() throws Exception {
+        String offers = toJson("offer-on-primary-reserve-market.json",
+                "expected-data");
+
+        this.mockMvc.perform(
+                        get(API_ROOT_URL +  "/offers/PRIMARY_RESERVE")
+                                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json(offers));
     }
 }
