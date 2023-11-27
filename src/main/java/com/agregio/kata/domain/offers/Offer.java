@@ -93,6 +93,6 @@ public class Offer {
     }
 
     public boolean hasInvalidTimeBlock() {
-        return this.getTimeBlocks().stream().anyMatch(TimeBlock::isValid);
+        return this.getTimeBlocks().stream().anyMatch(timeBlock -> !timeBlock.isValid());
     }
 }

@@ -11,15 +11,16 @@ import com.agregio.kata.infrastructure.offers.OffersSPI;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class OffersAPITest {
 
     private final OffersSPI offersSPI = mock(OffersSPI.class);
-
     private final OffersAPI sut = new Offers(offersSPI);
 
     @Test
@@ -43,9 +44,11 @@ class OffersAPITest {
 
     @Test
     public void should_create_a_valid_offer() throws Exception {
-        var createdOffer = sut.createOffer(aValidOffer());
         var expectedOffer = aValidOffer();
         expectedOffer.setId(1);
+        when(offersSPI.createOffer(aValidOffer())).thenReturn(Optional.of(expectedOffer));
+
+        var createdOffer = sut.createOffer(aValidOffer()).orElseThrow();
         assertEquals(expectedOffer, createdOffer);
     }
 

@@ -17,6 +17,14 @@ public class TimeBlock {
         this.powerQuantity = powerQuantity;
     }
 
+    public TimeBlock(long id, int startHour, int endHour, Double floorPrice, Double powerQuantity) {
+        this.id = id;
+        this.startHour = startHour;
+        this.endHour = endHour;
+        this.floorPrice = floorPrice;
+        this.powerQuantity = powerQuantity;
+    }
+
     public long getId() {
         return id;
     }
@@ -73,6 +81,7 @@ public class TimeBlock {
     }
 
     public boolean isValid() {
-        return startHour >= 0 && endHour < 24;
+        return startHour >= 0 && startHour < 24
+                && endHour >= 0 &&  endHour < 24;
     }
 }
