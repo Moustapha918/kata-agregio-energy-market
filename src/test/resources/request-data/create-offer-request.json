@@ -1,0 +1,13 @@
+{
+  "name": "nom",
+  "description": "description",
+  "marketType": "SECONDARY_RESERVE",
+  "timeBlocks": [
+    {
+      "startHour":  12,
+      "endHour": 13,
+      "floorPrice":  150.10,
+      "powerQuantity": 1200
+    }
+  ]
+}
