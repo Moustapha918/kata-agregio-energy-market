@@ -26,7 +26,9 @@ public class Offers implements OffersAPI {
 
     @Override
     public List<Offer> loadOffersByMarket(EnumMarketType primaryReserve) {
-        return List.of();
+        return offersSPI.loadOffers()
+                .stream().filter(offer -> offer.getMarketType().equals(primaryReserve))
+                .toList();
     }
 
     private void checkOfferDetails(Offer offer) {
@@ -36,7 +38,7 @@ public class Offers implements OffersAPI {
         if (offer.hasTooManyTimeBlocks()) {
             throw new TooManyTimeBlocksOfferException();
         }
-        if(offer.hasInvalidTimeBlock()){
+        if (offer.hasInvalidTimeBlock()) {
             throw new InvalidTimeBlockException();
         }
     }

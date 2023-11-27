@@ -54,6 +54,8 @@ class OffersAPITest {
 
     @Test
     public void should_load_primary_reserve_market_offers() {
+
+        when(offersSPI.loadOffers()).thenReturn(lotOfOffers());
         var expectedOffers = sut.loadOffersByMarket(EnumMarketType.PRIMARY_RESERVE);
         assertEquals(1, expectedOffers.size());
     }

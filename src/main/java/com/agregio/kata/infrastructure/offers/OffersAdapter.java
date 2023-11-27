@@ -21,6 +21,11 @@ public class OffersAdapter implements OffersSPI {
         return Optional.of(offer);
     }
 
+    @Override
+    public List<Offer> loadOffers() {
+        return dataBase;
+    }
+
     private List<Offer> initDB() {
 
         return new ArrayList<>(List.of(
