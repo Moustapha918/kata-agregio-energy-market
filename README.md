@@ -1,5 +1,5 @@
 # kata-agregio-energy-market
-Kata pour implementer une API de gestion de marché d'energy et des park de fourniture d'electricité.
+Kata pour implementer une API de gestion des marchés d'energie et des parcs de fourniture d'electricité.
 
 ## Requirements
 
@@ -8,7 +8,7 @@ Pour buld et lancer l'application, vous avez besoin de
 - [JDK 17] 
 - [Maven 3](https://maven.apache.org)
 
-## Running the application locally
+## Lancer l'application en local
 
 Pour lancer l'application sur votre machine en locale soit :
 
