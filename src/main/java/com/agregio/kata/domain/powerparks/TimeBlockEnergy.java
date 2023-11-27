@@ -4,7 +4,7 @@ public class TimeBlockEnergy {
 
     private int startHour;
     private int endHour;
-    private double providedEnergy;
+    private Double providedEnergy;
 
     public int getStartHour() {
         return startHour;
@@ -22,15 +22,15 @@ public class TimeBlockEnergy {
         this.endHour = endHour;
     }
 
-    public double getProvidedEnergy() {
+    public Double getProvidedEnergy() {
         return providedEnergy;
     }
 
-    public void setProvidedEnergy(double providedEnergy) {
+    public void setProvidedEnergy(Double providedEnergy) {
         this.providedEnergy = providedEnergy;
     }
 
-    public TimeBlockEnergy(int startHour, int endHour, double providedEnergy) {
+    public TimeBlockEnergy(int startHour, int endHour, Double providedEnergy) {
         this.startHour = startHour;
         this.endHour = endHour;
         this.providedEnergy = providedEnergy;

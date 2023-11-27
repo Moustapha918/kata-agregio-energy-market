@@ -5,7 +5,7 @@
     {
       "startHour": 12,
       "endHour": 13,
-      "providedPower": 200.43
+      "providedEnergy": 200.43
     }
   ]
 }
