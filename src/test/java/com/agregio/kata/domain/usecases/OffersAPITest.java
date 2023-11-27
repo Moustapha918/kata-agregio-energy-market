@@ -43,13 +43,19 @@ class OffersAPITest {
     }
 
     @Test
-    public void should_create_a_valid_offer() throws Exception {
+    public void should_create_a_valid_offer(){
         var expectedOffer = aValidOffer();
         expectedOffer.setId(1);
         when(offersSPI.createOffer(aValidOffer())).thenReturn(Optional.of(expectedOffer));
 
         var createdOffer = sut.createOffer(aValidOffer()).orElseThrow();
         assertEquals(expectedOffer, createdOffer);
+    }
+
+    @Test
+    public void should_load_primary_reserve_market_offers() {
+        var expectedOffers = sut.loadOffersByMarket(EnumMarketType.PRIMARY_RESERVE);
+        assertEquals(1, expectedOffers.size());
     }
 
     private Offer aValidOffer() {
@@ -60,6 +66,27 @@ class OffersAPITest {
         ));
     }
 
+    public List<Offer> lotOfOffers() {
+        return List.of(
+                new Offer("with 24 block", "",
+                        EnumMarketType.PRIMARY_RESERVE, List.of(
+                        new TimeBlock(0, 4, 300D, 1200D),
+                        new TimeBlock(4, 8, 250D, 900D)
+                )),
+                new Offer("with 24 block", "",
+                        EnumMarketType.SECONDARY_RESERVE, List.of(
+                        new TimeBlock(0, 4, 300D, 1200D),
+                        new TimeBlock(4, 8, 250D, 900D)
+                )),
+                new Offer("with 24 block", "",
+                        EnumMarketType.QUICK_RESERVE, List.of(
+                        new TimeBlock(0, 4, 300D, 1200D),
+                        new TimeBlock(4, 8, 250D, 900D)
+                ))
+
+        );
+
+    }
 
     private Offer offerWithWrongTimeBlocks() {
         return new Offer("with 24 block", "",
