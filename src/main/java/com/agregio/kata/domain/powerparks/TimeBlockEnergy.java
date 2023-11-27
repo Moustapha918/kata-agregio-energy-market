@@ -35,4 +35,9 @@ public class TimeBlockEnergy {
         this.endHour = endHour;
         this.providedEnergy = providedEnergy;
     }
+
+    public boolean isValid() {
+        return startHour >= 0 && startHour < 24
+                && endHour >= 0 && endHour < 24;
+    }
 }
