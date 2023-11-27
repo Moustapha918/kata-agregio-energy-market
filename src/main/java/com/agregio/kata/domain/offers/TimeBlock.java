@@ -71,4 +71,8 @@ public class TimeBlock {
     public int hashCode() {
         return Objects.hash(id, startHour, endHour, floorPrice, powerQuantity);
     }
+
+    public boolean isValid() {
+        return startHour >= 0 && endHour < 24;
+    }
 }

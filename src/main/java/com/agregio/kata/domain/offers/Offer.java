@@ -1,11 +1,14 @@
 package com.agregio.kata.domain.offers;
 
 import com.agregio.kata.domain.market.EnumMarketType;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Objects;
 
 public class Offer {
+
+    private static final int MAX_TIME_BLOCK_PER_OFFER = 24;
 
     private long id;
     private String name;
@@ -79,5 +82,17 @@ public class Offer {
     @Override
     public int hashCode() {
         return Objects.hash(name, Description, marketType, timeBlocks);
+    }
+
+    public boolean hasNoTimeBlock() {
+        return CollectionUtils.isEmpty(this.getTimeBlocks());
+    }
+
+    public boolean hasTooManyTimeBlocks() {
+        return this.getTimeBlocks().size() > MAX_TIME_BLOCK_PER_OFFER;
+    }
+
+    public boolean hasInvalidTimeBlock() {
+        return this.getTimeBlocks().stream().anyMatch(TimeBlock::isValid);
     }
 }

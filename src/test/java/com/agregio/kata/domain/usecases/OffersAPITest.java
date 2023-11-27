@@ -7,16 +7,20 @@ import com.agregio.kata.domain.offers.TimeBlock;
 import com.agregio.kata.domain.offers.exceptions.InvalidTimeBlockException;
 import com.agregio.kata.domain.offers.exceptions.NoTimeBlockOfferException;
 import com.agregio.kata.domain.offers.exceptions.TooManyTimeBlocksOfferException;
+import com.agregio.kata.infrastructure.offers.OffersSPI;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 class OffersAPITest {
 
-    private final OffersAPI sut = new Offers();
+    private final OffersSPI offersSPI = mock(OffersSPI.class);
+
+    private final OffersAPI sut = new Offers(offersSPI);
 
     @Test
     public void should_not_create_offer_without_time_block() {
