@@ -1,16 +1,16 @@
 # kata-agregio-energy-market
 Kata pour implementer une API de gestion des marchés d'energie et des parcs de fourniture d'electricité.
 
-## Requirements
+## prérequis
 
-Pour buld et lancer l'application, vous avez besoin de
+Pour build et lancer l'application, vous avez besoin de
 
 - [JDK 17] 
 - [Maven 3](https://maven.apache.org)
 
 ## Lancer l'application en local
 
-Pour lancer l'application sur votre machine en locale soit :
+Pour lancer l'application sur votre machine en locale, deux façon de faire :
 
  - Exécuter la méthode `main` de la classe `de.codecentric.springbootsample.Application` à partir de votre IDE.
  - lancer   mvn spring-boot:run  depuis votre terminal.
@@ -42,10 +42,10 @@ on doit pouvoir connaître le(s) parc(s) qui va(vont) produire l'électricité d
 
  ## Termes fonctionnel utilisés dans le domaine
 
- - PowerPark :  es parcs producteurs d'électricité.
+ - PowerPark :  les parcs producteurs d'électricité.
  - Offer : Offre du marché d'energie
- - TimeBlock : un bloc horaire sur 24, avec une heure de debut une heure de fin et une quantité d'energie garanti par l'offre en question.
- - TimeBlockEnergy, un bloc horaire sur 24 avec une heure de debut une heure de fin et une quantité d'energie fourni par le park en question.
+ - TimeBlock : un bloc horaire sur 24, avec une heure de debut, une heure de fin et une quantité d'energie garanti par l'offre en question.
+ - TimeBlockEnergy, un bloc horaire sur 24 avec une heure de debut, une heure de fin et une quantité d'energie fourni par le park en question.
 
 
  
