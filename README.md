@@ -12,7 +12,7 @@ Pour build et lancer l'application, vous avez besoin de
 
 Pour lancer l'application sur votre machine en locale, deux façon de faire :
 
- - Exécuter la méthode `main` de la classe `de.codecentric.springbootsample.Application` à partir de votre IDE.
+ - Exécuter la méthode `main` de la classe `com.agregio.kata.KataApplication` à partir de votre IDE.
  - lancer   mvn spring-boot:run  depuis votre terminal.
 
 
